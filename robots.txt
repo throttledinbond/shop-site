@@ -1,0 +1,6 @@
+# Aged In Grain — PRE-LAUNCH / UNLISTED
+# Keep the entire site out of search engines until public release.
+# When you are ready to launch, replace this file with an allow list + sitemap.
+
+User-agent: *
+Disallow: /

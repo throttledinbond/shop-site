@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aged In Grain&trade; &ndash; Single-Barrel Coffee | The Fuel of American Muscle&trade;</title>
+
+<!-- PRE-LAUNCH / UNLISTED: keep this site out of search until public release -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="description" content="Aged In Grain&trade;: single-barrel coffee, aged in the same barrels that hold Kentucky straight bourbon by Throttled In Bond. The Fuel of American Muscle. Coming soon.">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Aged In Grain™ – Single-Barrel Coffee">
+<meta property="og:description" content="Barrel-aged coffee from Throttled In Bond. The Fuel of American Muscle™. Coming soon.">
+<meta property="og:site_name" content="Aged In Grain&trade;">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
+<style>
+@font-face { font-family:'BasierSquare'; src:url('https://raw.githubusercontent.com/throttledinbond/TIB-site/main/BasierSquare-Regular.otf') format('opentype'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'BasierSquare'; src:url('https://raw.githubusercontent.com/throttledinbond/TIB-site/main/BasierSquare-Medium.otf') format('opentype'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face { font-family:'BasierSquare'; src:url('https://raw.githubusercontent.com/throttledinbond/TIB-site/main/BasierSquare-SemiBold.otf') format('opentype'); font-weight:600; font-style:normal; font-display:swap; }
+@font-face { font-family:'BasierSquare'; src:url('https://raw.githubusercontent.com/throttledinbond/TIB-site/main/BasierSquare-Bold.otf') format('opentype'); font-weight:700; font-style:normal; font-display:swap; }
+
+:root{
+  --cream:#F2EDE3; --cream2:#E9E1D2; --cream3:#D6CCBA; --paper:#FBF8F1;
+  --charcoal:#1A1917; --charcoal2:#242220; --charcoal3:#2E2C28; --charcoal4:#3E3B35;
+  --gold:#C8952A; --gold-lt:#E8B84B; --gold-dk:#9A6E18; --rust:#8B3A2A;
+  --ink:#1A1917; --muted:#6A6258;
+  --f:'BasierSquare',system-ui,-apple-system,sans-serif;
+  --tsh:0 0 3px rgba(0,0,0,.9), 0 1px 3px rgba(0,0,0,.95), 0 3px 12px rgba(0,0,0,.8);
+  --tsh-lg:0 0 6px rgba(0,0,0,.85), 0 2px 5px rgba(0,0,0,.95), 0 6px 26px rgba(0,0,0,.8);
+  --metal:linear-gradient(180deg,rgba(255,255,255,.06) 0%,rgba(255,255,255,0) 42%,rgba(0,0,0,.34) 100%),url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%271200%27%20height%3D%27800%27%20preserveAspectRatio%3D%27none%27%3E%3Cfilter%20id%3D%27gm%27%3E%3CfeTurbulence%20type%3D%27fractalNoise%27%20baseFrequency%3D%270.85%200.007%27%20numOctaves%3D%272%27%20seed%3D%278%27%20stitchTiles%3D%27stitch%27%2F%3E%3CfeColorMatrix%20type%3D%27matrix%27%20values%3D%270%200%200%200%200.85%200%200%200%200%200.85%200%200%200%200%200.85%200%200%200%200.5%200%27%2F%3E%3CfeComponentTransfer%3E%3CfeFuncA%20type%3D%27linear%27%20slope%3D%270.2%27%2F%3E%3C%2FfeComponentTransfer%3E%3C%2Ffilter%3E%3Crect%20width%3D%27100%25%27%20height%3D%27100%25%27%20filter%3D%27url%28%23gm%29%27%2F%3E%3C%2Fsvg%3E");
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--f); background:var(--charcoal); color:var(--cream);
+  line-height:1.55; -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px;position:relative;z-index:3}
+.eyebrow{font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:600;color:var(--gold)}
+h2.sec-title{font-size:clamp(28px,5vw,52px);font-weight:700;letter-spacing:.01em;line-height:1.02;margin:14px 0 20px;text-transform:uppercase;color:var(--cream)}
+p.lead{font-size:clamp(16px,2vw,20px);color:var(--cream3);max-width:56ch}
+p.body{font-size:clamp(15px,1.8vw,18px);color:var(--cream3);margin-top:14px}
+
+/* ===== ONE continuous page background: brushed metal + huge watermarks ===== */
+.page-bg{position:fixed;inset:0;z-index:-3;background-color:var(--charcoal);
+  background-image:var(--metal);background-repeat:no-repeat,repeat;background-size:100% 100%,1200px 800px;background-position:center,top left;}
+.page-bg:after{content:"";position:absolute;inset:0;background:radial-gradient(140% 90% at 50% -8%,rgba(200,149,42,.10),transparent 60%);}
+.page-marks{position:fixed;inset:-12%;z-index:-2;pointer-events:none;overflow:hidden;animation:drift 34s ease-in-out infinite alternate}
+/* full-width coffee-bean band pinned to the bottom, shifted down so the dense pile
+   runs off the page; no gradient fade, so the scattered top beans read naturally */
+.page-beans{position:fixed;left:0;right:0;bottom:0;z-index:-1;pointer-events:none;line-height:0}
+.page-beans img{display:block;width:100%;height:auto;transform:translateY(34%)}
+.page-marks .mk{position:absolute;will-change:transform;transition:transform .6s cubic-bezier(.16,.7,.3,1)}
+.page-marks .mk img{display:block;width:100%;height:auto}
+@keyframes drift{0%{transform:translate3d(0,0,0) scale(1)}100%{transform:translate3d(0,-20px,0) scale(1.04)}}
+/* HUGE wordmark spanning the whole page */
+.gmk-word{top:30%;left:50%;margin-left:-88vw;width:176vw;opacity:.06}
+.gmk-word-2{bottom:-4%;left:50%;margin-left:-70vw;width:140vw;opacity:.04}
+.gmk-icon{top:1%;left:-8%;width:min(78vw,860px);opacity:.05}
+.gmk-icon-2{bottom:-14%;right:-10%;width:min(56vw,640px);opacity:.045}
+
+/* double-rule detail */
+.drule{border-top:1px solid var(--gold);position:relative;padding-top:6px}
+.drule:before{content:"";position:absolute;top:3px;left:0;right:0;border-top:1px solid var(--gold);opacity:.45}
+.drule-dk{border-top:1px solid var(--charcoal4);position:relative;padding-top:6px}
+.drule-dk:before{content:"";position:absolute;top:3px;left:0;right:0;border-top:1px solid var(--charcoal4);opacity:.5}
+
+/* NAV */
+header.nav{position:sticky;top:0;z-index:60;background:rgba(20,19,17,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--charcoal4)}
+.nav-in{display:flex;align-items:center;gap:16px;height:64px;position:relative;z-index:3}
+.brandmark{display:flex;align-items:center;gap:11px}
+.brandmark img{height:26px;width:auto}
+.wordmark{font-weight:700;letter-spacing:.2em;font-size:15px;color:var(--cream);text-transform:uppercase;white-space:nowrap}
+.nav-links{margin-left:auto;display:flex;gap:26px;align-items:center}
+.nav-links a{font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--cream3);font-weight:500;transition:color .15s}
+.nav-links a:hover{color:var(--gold-lt)}
+.nav-links a.nav-cta{border:1px solid var(--gold);color:var(--gold);padding:9px 16px;cursor:pointer}
+.nav-links a.nav-cta:hover{background:var(--gold);color:var(--charcoal)}
+.nav-toggle{display:none;margin-left:auto;background:none;border:1px solid var(--charcoal4);color:var(--cream);padding:7px 11px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+@media(max-width:820px){
+  .nav-links{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:rgba(20,19,17,.98);border-bottom:1px solid var(--charcoal4);gap:0;padding:6px 0}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:14px 24px;width:100%}
+  .nav-links a.nav-cta{border:none;border-top:1px solid var(--charcoal4);color:var(--gold);padding:16px 24px}
+  .nav-toggle{display:block}
+}
+
+/* SECTIONS (all transparent, sit over the single page background) */
+section{padding:clamp(64px,10vw,120px) 0;position:relative}
+.hero{color:var(--cream)}
+.hero-in{padding:clamp(30px,6vh,72px) 0 clamp(56px,9vw,108px)}
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(24px,5vw,52px);align-items:center;text-align:left}
+.hero-copy .hero-broughtby{justify-content:flex-start}
+.hero-copy .hero-cta{justify-content:flex-start}
+.hero-right{text-align:center}
+.hero-bag{position:relative;display:flex;align-items:center;justify-content:center}
+.bag-glow{position:absolute;width:82%;height:70%;background:radial-gradient(ellipse at center,rgba(200,149,42,.28),transparent 70%);filter:blur(34px)}
+.bag-fan{position:relative;z-index:2;display:flex;align-items:center;justify-content:center}
+.bag-fan img{width:auto;filter:drop-shadow(0 14px 26px rgba(0,0,0,.6));animation:bob 6.5s ease-in-out infinite}
+.bag-fan .b0{height:clamp(150px,27vh,290px)}
+.bag-fan .b1{height:clamp(128px,23vh,248px);z-index:2;margin:0 -15px;animation-delay:.35s}
+.bag-fan .b2{height:clamp(108px,19vh,206px);z-index:1;margin:0 -15px;animation-delay:.7s}
+.bag-center{position:relative;z-index:3;margin:0 -15px;display:inline-flex;animation:bob 6.5s ease-in-out infinite}
+.bag-center .b0{margin:0;animation:none;display:block}
+.bag-sash{position:absolute;top:50%;left:-22%;width:144%;transform:translateY(-50%) rotate(-24deg);background:var(--rust);box-shadow:0 4px 16px rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;gap:8px;padding:8px 22px;z-index:6;pointer-events:none;--sfs:clamp(10px,1.4vw,15px);clip-path:polygon(0 0,100% 0,calc(100% - 13px) 50%,100% 100%,0 100%,13px 50%)}
+.bag-sash img{height:var(--sfs);width:auto;display:block;flex-shrink:0;animation:none}
+.bag-sash span{font-size:var(--sfs);font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#F4EEE3;line-height:1;white-space:nowrap}
+.coffee-block{margin-top:clamp(22px,3.5vh,38px)}
+.coffee-title{font-size:clamp(15px,2.3vw,27px);font-weight:700;letter-spacing:.02em;line-height:1.05;text-transform:uppercase;color:var(--gold);white-space:nowrap;margin:12px 0 0;text-shadow:var(--tsh)}
+@media(max-width:820px){
+  .hero-grid{grid-template-columns:1fr;text-align:center}
+  .hero-copy .hero-broughtby,.hero-copy .hero-cta{justify-content:center}
+  .bag-fan .b0{height:clamp(160px,34vw,260px)}
+  .bag-fan .b1{height:clamp(136px,29vw,222px)}
+  .bag-fan .b2{height:clamp(114px,24vw,184px)}
+}
+.hero .kmark{height:54px;width:auto;margin:0 auto 26px;opacity:.98;filter:drop-shadow(0 6px 24px rgba(0,0,0,.55))}
+.hero-sub{font-size:clamp(12px,2.2vw,16px);letter-spacing:.4em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:16px}
+.hero-word{font-size:clamp(30px,5.2vw,62px);font-weight:700;letter-spacing:.03em;line-height:1;text-transform:uppercase;color:var(--cream);white-space:nowrap}
+.hero-tm{font-size:.30em;vertical-align:top;position:relative;top:.06em;line-height:1;letter-spacing:0;color:var(--cream);font-weight:600}
+.hero-product{margin:14px auto 0;font-size:clamp(20px,5vw,54px);font-weight:700;letter-spacing:.05em;line-height:1;text-transform:uppercase;color:var(--cream);text-shadow:var(--tsh-lg)}
+.hero-broughtby{margin:20px auto 0;display:flex;flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px}
+.hero-broughtby .bb-label{font-size:clamp(8px,1.2vw,10px);letter-spacing:.24em;text-transform:uppercase;color:var(--cream3);text-shadow:var(--tsh)}
+.hero-tibmark{height:clamp(13px,1.9vw,17px);width:auto;filter:drop-shadow(0 2px 7px rgba(0,0,0,.6))}
+.hero-body{max-width:44ch;margin:24px auto 0;color:var(--cream3);font-size:clamp(15px,2vw,19px)}
+.hero-cta{margin-top:34px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;font-family:var(--f);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;padding:14px 28px;cursor:pointer;border:1px solid var(--gold);transition:all .16s;background:none}
+.btn-solid{background:var(--gold);color:var(--charcoal);border-color:var(--gold)}
+.btn-solid:hover{background:var(--gold-lt);border-color:var(--gold-lt)}
+.btn-ghost{background:transparent;color:var(--gold);border-color:var(--gold)}
+.btn-ghost:hover{background:var(--gold);color:var(--charcoal)}
+.hero-badge{display:inline-block;margin-top:30px;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--cream3);border:1px solid var(--charcoal4);padding:8px 16px;background:rgba(20,19,17,.4)}
+
+/* GRID */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,68px);align-items:center}
+@media(max-width:820px){.grid2{grid-template-columns:1fr;gap:38px}}
+
+/* product image (real coffee bag) */
+.product-wrap{position:relative;display:flex;align-items:center;justify-content:center;padding:8px;min-height:clamp(360px,52vw,560px)}
+.product-glow{position:absolute;width:74%;height:64%;background:radial-gradient(ellipse at center,rgba(200,149,42,.20),transparent 70%);filter:blur(26px);z-index:0}
+.product-bag{position:relative;z-index:2;width:min(84%,400px);height:auto;filter:drop-shadow(0 10px 14px rgba(0,0,0,.5)) drop-shadow(0 30px 44px rgba(0,0,0,.5)) drop-shadow(0 2px 3px rgba(0,0,0,.4));animation:bob 6.5s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@media(prefers-reduced-motion:reduce){.product-bag{animation:none}}
+
+/* product/bag panel */
+.bag{position:relative;border:1px solid var(--gold);background:linear-gradient(155deg,#20201d 0%,#141311 100%);padding:clamp(34px,5vw,54px) 30px;text-align:center;overflow:hidden;box-shadow:0 34px 66px -30px rgba(0,0,0,.85)}
+.bag:before{content:"";position:absolute;inset:9px;border:1px solid rgba(200,149,42,.5);pointer-events:none}
+.bag-wm{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.bag-wm img{width:150%;max-width:none;opacity:.06}
+.bag-in{position:relative;z-index:2}
+.bag-icon{height:clamp(64px,10vw,92px);width:auto;margin:0 auto 16px}
+.bag-parent{font-size:clamp(13px,1.8vw,16px);letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.bag-line{width:44px;height:1px;background:var(--gold);margin:16px auto;opacity:.7}
+.bag-word{font-size:clamp(22px,3.4vw,32px);letter-spacing:.16em;text-transform:uppercase;color:var(--cream);font-weight:700;line-height:1}
+.bag-tag{margin-top:9px;font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--cream3)}
+.bag-soon{margin-top:22px;display:inline-block;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);padding:7px 15px}
+
+/* spec chips */
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.chip{border:1px solid var(--charcoal4);padding:10px 15px;background:rgba(20,19,17,.4)}
+.chip .k{font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--cream3)}
+.chip .v{font-size:14px;font-weight:600;margin-top:3px;letter-spacing:.02em;color:var(--cream)}
+
+.coming-tag{display:inline-block;font-size:11px;letter-spacing:.26em;text-transform:uppercase;font-weight:600;color:var(--gold);border:1px solid var(--gold);padding:6px 14px;margin-bottom:14px}
+
+/* FORMS (contact + modal) */
+.form-card{background:rgba(20,19,17,.72);border:1px solid var(--charcoal4);padding:clamp(28px,4vw,44px);backdrop-filter:blur(4px)}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--cream3);margin-bottom:7px}
+.field input,.field textarea{width:100%;font-family:var(--f);font-size:15px;background:rgba(10,10,9,.6);border:1px solid var(--charcoal4);color:var(--cream);padding:12px 14px}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--gold)}
+.field textarea{resize:vertical;min-height:120px}
+.form-note{font-size:12.5px;color:var(--cream3);margin-top:10px}
+.form-ok{color:var(--gold-lt);font-weight:600}
+.form-err{color:#E88A6A;font-weight:600}
+
+/* MODAL */
+.modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:24px}
+.modal.open{display:flex}
+.modal-backdrop{position:absolute;inset:0;background:rgba(8,8,7,.82);backdrop-filter:blur(3px)}
+.modal-card{position:relative;z-index:2;width:100%;max-width:440px;background-color:var(--charcoal2);background-image:var(--metal);background-size:100% 100%,900px 600px;background-repeat:no-repeat,repeat;border:1px solid var(--gold);padding:clamp(30px,5vw,46px) clamp(26px,4vw,40px);text-align:center;box-shadow:0 40px 80px -30px rgba(0,0,0,.9)}
+.modal-card:before{content:"";position:absolute;inset:8px;border:1px solid rgba(200,149,42,.4);pointer-events:none}
+.modal-x{position:absolute;top:10px;right:14px;background:none;border:none;color:var(--cream3);font-size:26px;line-height:1;cursor:pointer;z-index:3}
+.modal-x:hover{color:var(--gold)}
+.modal-card h3{font-size:clamp(22px,4vw,30px);text-transform:uppercase;letter-spacing:.02em;color:var(--cream);margin:12px 0 8px}
+.modal-card p{color:var(--cream3);font-size:14px;margin-bottom:20px}
+.modal-card .kmark-sm{height:34px;width:auto;margin:0 auto;opacity:.95}
+.modal-form{display:flex;flex-direction:column;gap:12px;position:relative;z-index:2}
+.modal-form input{font-family:var(--f);font-size:15px;background:rgba(10,10,9,.6);border:1px solid var(--charcoal4);color:var(--cream);padding:13px 15px;text-align:center}
+.modal-form input:focus{outline:none;border-color:var(--gold)}
+
+/* FOOTER */
+footer{color:var(--cream3);padding:56px 0 40px;border-top:1px solid var(--gold-dk);position:relative;z-index:2;
+  background:linear-gradient(to bottom, rgba(16,15,14,.80) 0%, rgba(13,12,11,.95) 45%, rgba(11,10,9,.99) 100%)}
+.foot-top{display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between;align-items:flex-start}
+.foot-brand .wordmark{color:var(--cream)}
+.foot-tag{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-top:12px}
+.foot-links{display:flex;gap:24px;flex-wrap:wrap}
+.foot-links a{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--cream3);cursor:pointer}
+.foot-links a:hover{color:var(--gold-lt)}
+.foot-whiskey{margin-top:34px;padding-top:20px;font-size:12px;letter-spacing:.06em;color:var(--cream3)}
+.foot-whiskey a{color:var(--gold);font-weight:600}
+.foot-legal{margin-top:16px;font-size:11px;letter-spacing:.04em;color:#9A9186}
+.foot-legal b{color:#C4BBAD;font-weight:400}
+.tm{font-size:.62em;vertical-align:super}
+
+.shop-lead{white-space:nowrap;font-size:clamp(12px,2.6vw,20px)}
+.shop-subline{color:var(--gold);font-size:clamp(12px,1.7vw,15px);letter-spacing:.05em;text-shadow:var(--tsh)}
+/* shop category filters */
+.shop-filters{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:30px 0 4px}
+.shop-filter{font-family:var(--f);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--cream3);background:rgba(20,19,17,.5);border:1px solid var(--charcoal4);padding:9px 17px;cursor:pointer;transition:all .15s}
+.shop-filter:hover{color:var(--gold);border-color:var(--gold)}
+.shop-filter.active{background:var(--gold);color:var(--charcoal);border-color:var(--gold)}
+/* shop product grid */
+.shop-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px;margin-top:22px}
+.pcard{background:rgba(20,19,17,.62);border:1px solid var(--charcoal4);overflow:hidden;display:flex;flex-direction:column;transition:border-color .16s,transform .16s}
+.pcard:hover{border-color:var(--gold);transform:translateY(-3px)}
+.pcard .pimg{aspect-ratio:1/1;background:#ECE5D7;overflow:hidden}
+.pcard .pimg img{width:100%;height:100%;object-fit:cover;display:block}
+.pcard .pinfo{padding:13px 14px 15px;text-align:left}
+.pcard .pname{font-size:12.5px;letter-spacing:.03em;color:var(--cream);font-weight:600;line-height:1.3}
+.pcard .pprice{font-size:12.5px;color:var(--gold);margin-top:5px;letter-spacing:.05em}
+.age-note{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--cream3);text-shadow:var(--tsh)}
+.modal-card.wide{max-width:560px}
+.modal-card.wide p{font-size:15px;line-height:1.7}
+.inline-mark{height:.82em;width:auto;display:inline-block;vertical-align:baseline;margin:0 .18em;position:relative;top:.02em}
+
+/* readability: soft shadow on floating text so it reads over the beans,
+   and still looks like tasteful depth once scrolled over the brushed metal */
+.hero-sub,.hero-body,.hero-badge,h2.sec-title,p.lead,p.body,.eyebrow,.coming-tag,
+.chip .k,.chip .v,.foot-brand .wordmark,.foot-tag,.foot-whiskey,.foot-legal{ text-shadow:var(--tsh); }
+.hero-word{ text-shadow:var(--tsh-lg); }
+.btn{ box-shadow:0 8px 22px rgba(0,0,0,.42); }
+.btn-ghost{ text-shadow:var(--tsh); background:rgba(20,19,17,.28); }
+.btn-ghost:hover{ text-shadow:none; }
+.chip{ background:rgba(20,19,17,.55); }
+
+@media(prefers-reduced-motion:reduce){.page-marks{animation:none}.page-marks .mk{transition:none}}
+</style>
+</head>
+<body>
+
+<!-- ONE continuous background for the whole page -->
+<div class="page-bg" aria-hidden="true"></div>
+<div class="page-marks" aria-hidden="true">
+  <div class="mk gmk-word"   data-depth="30"><img src="https://raw.githubusercontent.com/throttledinbond/TIB-site/main/THROTTLEDINBOND-Wordmark-White.png" alt="" crossorigin="anonymous"></div>
+  <div class="mk gmk-icon"   data-depth="52"><img src="https://raw.githubusercontent.com/throttledinbond/TIB-site/main/THROTTLEDINBOND-Logomark-White.png" alt="" crossorigin="anonymous"></div>
+  <div class="mk gmk-word-2" data-depth="20"><img src="https://raw.githubusercontent.com/throttledinbond/TIB-site/main/THROTTLEDINBOND-Wordmark-White.png" alt="" crossorigin="anonymous"></div>
+  <div class="mk gmk-icon-2" data-depth="40"><img src="https://raw.githubusercontent.com/throttledinbond/TIB-site/main/THROTTLEDINBOND-Logomark-White.png" alt="" crossorigin="anonymous"></div>
+</div>
+<div class="page-beans" aria-hidden="true"><img src="agedingrain-beans.png" alt=""></div>
+
+<!-- ===== NAV ===== -->
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brandmark" href="#top" aria-label="Aged In Grain home">
+      <img src="https://raw.githubusercontent.com/throttledinbond/TIB-site/main/THROTTLEDINBOND-Logomark-White.png" alt="" crossorigin="anonymous">
+      <span class="wordmark">Aged In Grain<span class="tm">&trade;</span></span>
+    </a>
+    <button class="nav-toggle" onclick="document.getElementById('navlinks').classList.toggle('open')">Menu</button>
+    <nav class="nav-links" id="navlinks">
+      <a href="#coffee" onclick="closeNav()">Coffee</a>
+      <a onclick="closeNav();openStory()">About</a>
+      <a href="#shop" onclick="closeNav()">Shop</a>
+      <a href="#bourbon" onclick="closeNav()">Bourbon</a>
+      <a class="nav-cta" onclick="closeNav();openSignup()">Get Early Access</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="top">
+  <div class="wrap hero-in hero-grid">
+    <div class="hero-copy">
+      <div class="hero-sub">The Fuel of American Muscle&trade;</div>
+      <h1 class="hero-word">Aged In Grain<span class="hero-tm">&trade;</span></h1>
+      <div class="hero-broughtby">
+        <span class="bb-label">Brought to you by</span>
+        <img class="hero-tibmark" src="https://raw.githubusercontent.com/throttledinbond/TIB-site/main/THROTTLEDINBOND-Wordmark-White.png" alt="Throttled In Bond" crossorigin="anonymous">
+      </div>
+      <div class="hero-cta">
+        <a class="btn btn-solid" onclick="openStory()">Learn More</a>
+        <a class="btn btn-ghost" onclick="openSignup()">Get Early Access</a>
+      </div>
+      <div class="hero-badge">Launching Soon</div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-bag">
+        <div class="bag-glow"></div>
+        <div class="bag-fan">
+          <img class="bf b2" src="agedingrain-bag.png" alt="" aria-hidden="true">
+          <img class="bf b1" src="agedingrain-bag.png" alt="" aria-hidden="true">
+          <div class="bag-center">
+            <img class="bf b0" src="agedingrain-bag.png" alt="Aged In Grain bourbon barrel aged coffee bag by Throttled In Bond">
+            <div class="bag-sash">
+              <img src="https://raw.githubusercontent.com/throttledinbond/TIB-site/main/THROTTLEDINBOND-Logomark-White.png" alt="" aria-hidden="true" crossorigin="anonymous">
+              <span>Coming Soon</span>
+            </div>
+          </div>
+          <img class="bf b1" src="agedingrain-bag.png" alt="" aria-hidden="true">
+          <img class="bf b2" src="agedingrain-bag.png" alt="" aria-hidden="true">
+        </div>
+      </div>
+      <div class="coffee-block" id="coffee">
+        <h2 class="coffee-title">Bourbon Barrel Aged Coffee</h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SHOP ===== -->
+<section id="shop">
+  <div class="wrap" style="text-align:center">
+    <h2 class="sec-title" style="margin-left:auto;margin-right:auto">The Shop</h2>
+    <p class="lead shop-lead" style="margin:0 auto">Shop <img class="inline-mark" src="https://raw.githubusercontent.com/throttledinbond/TIB-site/main/THROTTLEDINBOND-Wordmark-White.png" alt="Throttled In Bond" crossorigin="anonymous">! Wear The Spirit of American Muscle.</p>
+    <p class="shop-subline" style="margin:8px auto 0">Made to order. Ships direct to you.</p>
+    <div class="shop-filters">
+      <button type="button" class="shop-filter active" data-col="313251528790" onclick="shopFilter(this)">All</button>
+      <button type="button" class="shop-filter" data-col="313454592086" onclick="shopFilter(this)">Apparel</button>
+      <button type="button" class="shop-filter" data-col="313454624854" onclick="shopFilter(this)">Hats</button>
+      <button type="button" class="shop-filter" data-col="313454657622" onclick="shopFilter(this)">Home</button>
+      <button type="button" class="shop-filter" data-col="313454886998" onclick="shopFilter(this)">Garage</button>
+      <button type="button" class="shop-filter" data-col="313454690390" onclick="shopFilter(this)">Drinkware</button>
+    </div>
+    <div id="shop-embed" style="margin-top:24px"><div id="collection-component-1783597422579"></div></div>
+    <div class="age-note" style="margin-top:14px">The Store Is Open! Coffee coming soon!</div>
+  </div>
+</section>
+
+<!-- ===== BOURBON CROSS-SELL ===== -->
+<section id="bourbon">
+  <div class="wrap" style="max-width:760px;text-align:center">
+    <div class="eyebrow">From The Same Barrel</div>
+    <h2 class="sec-title" style="margin-left:auto;margin-right:auto;white-space:nowrap;font-size:clamp(20px,4.6vw,42px)">Curious About The Bourbon?</h2>
+    <p class="lead" style="margin:0 auto">Aged In Grain&trade; begins in the barrels that hold our Kentucky straight bourbon. Meet the whiskey that started it all.</p>
+    <div class="hero-cta" style="justify-content:center;margin-top:26px">
+      <a class="btn btn-solid" href="https://www.throttledinbond.com" target="_blank" rel="noopener">Explore The Whiskey</a>
+    </div>
+    <div class="age-note" style="margin-top:16px">Must be 21+ to visit and purchase alcohol.</div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <span class="wordmark">Aged In Grain<span class="tm">&trade;</span></span>
+        <div class="foot-tag">The Fuel of American Muscle&trade;</div>
+      </div>
+      <div class="foot-links">
+        <a href="#coffee">Coffee</a>
+        <a onclick="openStory()">About</a>
+        <a href="#shop">Shop</a>
+        <a href="#bourbon">Bourbon</a>
+        <a onclick="openSignup()">Early Access</a>
+      </div>
+    </div>
+    <div class="drule-dk" style="margin:30px 0 0"></div>
+    <div class="foot-whiskey">
+      Whiskey by <b>Throttled In Bond&trade;</b> &ndash; <a href="https://www.throttledinbond.com" target="_blank" rel="noopener">throttledinbond.com</a>
+    </div>
+    <div class="foot-legal">
+      <b>Independent &middot; Founder-Operated</b><br>
+      &copy; <span id="yr"></span> Aged In Grain&trade;, a Throttled In Bond&trade; brand. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<!-- ===== STORY MODAL ===== -->
+<div class="modal" id="storyModal" role="dialog" aria-modal="true" aria-label="Our story">
+  <div class="modal-backdrop" onclick="closeStory()"></div>
+  <div class="modal-card wide" style="text-align:center">
+    <button class="modal-x" onclick="closeStory()" aria-label="Close">&times;</button>
+    <img class="kmark-sm" src="https://raw.githubusercontent.com/throttledinbond/TIB-site/main/THROTTLEDINBOND-Logomark-White.png" alt="" crossorigin="anonymous">
+    <div class="eyebrow" style="margin-top:14px">The Story</div>
+    <h3>Rickhouse To Roaster</h3>
+    <p style="margin-bottom:14px">The barrels that age <img class="inline-mark" src="https://raw.githubusercontent.com/throttledinbond/TIB-site/main/THROTTLEDINBOND-Wordmark-White.png" alt="Throttled In Bond" crossorigin="anonymous"> whiskey get a second life aging coffee. They are quickly filled with green coffee beans, which rest 4&ndash;6 weeks before roasting. Two products, one barrel, one story.</p>
+    <p style="margin-bottom:0">Roasted in partnership with Blind Tiger, Tampa, FL.</p>
+    <div class="drule" style="max-width:120px;margin:22px auto 10px"></div>
+    <div class="foot-tag">Aged In Grain&trade; &ndash; The Fuel of American Muscle&trade;</div>
+  </div>
+</div>
+
+<!-- ===== EARLY ACCESS MODAL ===== -->
+<div class="modal" id="signupModal" role="dialog" aria-modal="true" aria-label="Get early access">
+  <div class="modal-backdrop" onclick="closeSignup()"></div>
+  <div class="modal-card">
+    <button class="modal-x" onclick="closeSignup()" aria-label="Close">&times;</button>
+    <img class="kmark-sm" src="https://raw.githubusercontent.com/throttledinbond/TIB-site/main/THROTTLEDINBOND-Logomark-White.png" alt="" crossorigin="anonymous">
+    <h3>Be First To Know</h3>
+    <p>New product releases, No Spam.</p>
+    <form class="modal-form" onsubmit="return submitNotify(event)">
+      <input type="email" id="notifyEmail" placeholder="you@email.com" autocomplete="email" required>
+      <button type="submit" class="btn btn-solid" id="notifyBtn">Notify Me</button>
+    </form>
+    <div class="form-note" id="notifyMsg" style="min-height:20px"></div>
+  </div>
+</div>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+function closeNav(){ document.getElementById('navlinks').classList.remove('open'); }
+
+/* modal */
+function openSignup(){ document.getElementById('signupModal').classList.add('open'); setTimeout(function(){var i=document.getElementById('notifyEmail'); if(i) i.focus();},60); }
+function closeSignup(){ document.getElementById('signupModal').classList.remove('open'); }
+/* ===== Shop: live Shopify Buy Button (same store as throttledinbond.com) ===== */
+var _shopInited = false, _shopUI = null;
+function shopRender(colId){
+  if(!_shopUI) return;
+  var GOLD='#C8952A', GOLD_LT='#B58A3C', CHARCOAL='#1A1917', CREAM='#F2EDE3', CREAM3='#A79C8A';
+  var btnStyle = {
+    'font-family':"'BasierSquare','Helvetica Neue',Arial,sans-serif",'font-weight':'600','font-size':'12px',
+    'letter-spacing':'0.1em','text-transform':'uppercase','border-radius':'0px',
+    'background-color':GOLD,'color':CHARCOAL,
+    ':hover':{'background-color':GOLD_LT},':focus':{'background-color':GOLD_LT}
+  };
+  var node = document.getElementById('collection-component-1783597422579');
+  if(node) node.innerHTML='';
+  _shopUI.createComponent('collection', {
+    id: colId, node: node, moneyFormat: '%24%7B%7Bamount%7D%7D',
+    options: {
+      product: {
+        buttonDestination: 'modal',
+        contents: { options: false },
+        styles: {
+          product: {
+            '@media (min-width: 601px)': { 'max-width':'calc(33.33% - 20px)','margin-left':'20px','margin-bottom':'40px','width':'calc(33.33% - 20px)' },
+            'img': { 'height':'calc(100% - 15px)','position':'absolute','left':'0','right':'0','top':'0' },
+            'imgWrapper': { 'padding-top':'calc(75% + 15px)','position':'relative','height':'0' }
+          },
+          title: { 'color':CREAM,'font-weight':'600','height':'3.4em','line-height':'1.35','overflow':'hidden' },
+          price: { 'color':CREAM },
+          compareAt: { 'color':CREAM3 },
+          button: btnStyle
+        },
+        text: { button: 'View Details' }
+      },
+      productSet: { styles: { products: { '@media (min-width: 601px)': { 'margin-left':'-20px' } } } },
+      modalProduct: {
+        contents: { img:false, imgWithCarousel:true, button:false, buttonWithQuantity:true },
+        styles: { product: { '@media (min-width: 601px)': { 'max-width':'100%','margin-left':'0px','margin-bottom':'0px' } }, button: btnStyle },
+        text: { button: 'Add to cart' }
+      },
+      option: {},
+      cart: { styles: { button: btnStyle }, text: { total:'Subtotal', button:'Checkout' } },
+      toggle: { styles: { toggle: { 'background-color':GOLD, ':hover':{'background-color':GOLD_LT} }, count: { 'color':CHARCOAL }, iconPath: { 'fill':CHARCOAL } } }
+    }
+  });
+}
+function shopFilter(btn){
+  var tabs = document.querySelectorAll('.shop-filter');
+  for(var i=0;i<tabs.length;i++) tabs[i].classList.remove('active');
+  btn.classList.add('active');
+  shopRender(btn.getAttribute('data-col'));
+}
+function shopInitStore(){
+  if(_shopInited) return; _shopInited = true;
+  function build(){
+    var client = ShopifyBuy.buildClient({ domain:'cehtfv-np.myshopify.com', storefrontAccessToken:'c2f813ef6e6542879f7b93e8d5ae7d4e' });
+    ShopifyBuy.UI.onReady(client).then(function(ui){ _shopUI = ui; shopRender('313251528790'); });
+  }
+  if(window.ShopifyBuy && window.ShopifyBuy.UI){ build(); }
+  else {
+    var s = document.createElement('script');
+    s.async = true; s.src = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+    s.onload = build;
+    (document.head || document.body).appendChild(s);
+  }
+}
+window.addEventListener('load', shopInitStore);
+function openStory(){ document.getElementById('storyModal').classList.add('open'); }
+function closeStory(){ document.getElementById('storyModal').classList.remove('open'); }
+document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ closeSignup(); closeStory(); } });
+
+/* ===== living parallax: whole-page watermark layer drifts with pointer / tilt ===== */
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce) return;
+  var marks = [].slice.call(document.querySelectorAll('.page-marks .mk[data-depth]'));
+  if(!marks.length) return;
+  var tx=0, ty=0, cx=0, cy=0, running=false;
+  function clamp(v){ return v<-1?-1:(v>1?1:v); }
+  function onMove(e){ tx=(e.clientX/window.innerWidth-0.5)*2; ty=(e.clientY/window.innerHeight-0.5)*2; start(); }
+  function onTilt(e){ if(e.gamma==null && e.beta==null) return; tx=clamp((e.gamma||0)/40); ty=clamp(((e.beta||0)-45)/40); start(); }
+  window.addEventListener('mousemove', onMove, {passive:true});
+  window.addEventListener('deviceorientation', onTilt, {passive:true});
+  function tick(){
+    cx += (tx-cx)*0.06; cy += (ty-cy)*0.06;
+    for(var i=0;i<marks.length;i++){
+      var d = parseFloat(marks[i].getAttribute('data-depth')) || 20;
+      marks[i].style.transform = 'translate3d(' + (-cx*d).toFixed(1) + 'px,' + (-cy*d).toFixed(1) + 'px,0)';
+    }
+    if(Math.abs(tx-cx)>0.001 || Math.abs(ty-cy)>0.001){ requestAnimationFrame(tick); } else { running=false; }
+  }
+  function start(){ if(!running){ running=true; requestAnimationFrame(tick); } }
+})();
+
+/* ===== forms ===== */
+var SB_URL = 'https://pzbfwzikctpyszthwpvt.supabase.co/functions/v1/brevo-proxy';
+var SB_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB6YmZ3emlrY3RweXN6dGh3cHZ0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMwMTgyMTcsImV4cCI6MjA5ODU5NDIxN30.j4KjQvEhAZPyKXpJHEsCQYTGuQ3p46WNHDgfb8B6Zjg';
+function callProxy(payload){
+  return fetch(SB_URL, { method:'POST', headers:{ 'Content-Type':'application/json', 'Authorization':'Bearer '+SB_ANON, 'apikey':SB_ANON }, body: JSON.stringify(payload) });
+}
+function validEmail(e){ return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e); }
+function submitNotify(ev){
+  ev.preventDefault();
+  var el=document.getElementById('notifyEmail'), out=document.getElementById('notifyMsg'), btn=document.getElementById('notifyBtn');
+  var email=(el.value||'').trim();
+  if(!validEmail(email)){ out.className='form-note form-err'; out.textContent='Please enter a valid email.'; return false; }
+  btn.disabled=true; out.className='form-note'; out.textContent='Sending...';
+  callProxy({ action:'contact', source:'Aged In Grain – Early Access', email:email, message:'Requested early access / launch notification.' })
+    .then(function(r){ return r.json().catch(function(){return {};}); })
+    .then(function(){ out.className='form-note form-ok'; out.textContent="You're on the list. We'll be in touch."; el.value=''; })
+    .catch(function(){ out.className='form-note form-err'; out.textContent='Something went wrong. Try again shortly.'; })
+    .finally(function(){ btn.disabled=false; });
+  return false;
+}
+function submitContact(ev){
+  ev.preventDefault();
+  var name=(document.getElementById('cName').value||'').trim(), email=(document.getElementById('cEmail').value||'').trim(), msg=(document.getElementById('cMsg').value||'').trim();
+  var out=document.getElementById('cMsgOut'), btn=document.getElementById('cBtn');
+  if(!validEmail(email)){ out.className='form-note form-err'; out.textContent='Please enter a valid email.'; return false; }
+  btn.disabled=true; out.className='form-note'; out.textContent='Sending...';
+  callProxy({ action:'contact', source:'Aged In Grain – Contact', name:name, email:email, message:msg })
+    .then(function(r){ return r.json().catch(function(){return {};}); })
+    .then(function(){ out.className='form-note form-ok'; out.textContent='Thanks, your message is on its way.'; document.getElementById('cName').value=''; document.getElementById('cEmail').value=''; document.getElementById('cMsg').value=''; })
+    .catch(function(){ out.className='form-note form-err'; out.textContent='Something went wrong. Try again shortly.'; })
+    .finally(function(){ btn.disabled=false; });
+  return false;
+}
+</script>
+</body>
+</html>
