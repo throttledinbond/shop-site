@@ -29,6 +29,7 @@
   --gold:#C8952A; --gold-lt:#E8B84B; --gold-dk:#9A6E18; --rust:#8B3A2A;
   --muted:#6A6258;
   --f:'BasierSquare',system-ui,-apple-system,sans-serif;
+  --nav-h:64px;
   --tsh:0 0 3px rgba(0,0,0,.9), 0 1px 3px rgba(0,0,0,.95), 0 3px 12px rgba(0,0,0,.8);
   --tsh-lg:0 0 6px rgba(0,0,0,.85), 0 2px 5px rgba(0,0,0,.95), 0 6px 26px rgba(0,0,0,.8);
   --metal:linear-gradient(180deg,rgba(255,255,255,.06) 0%,rgba(255,255,255,0) 42%,rgba(0,0,0,.34) 100%),url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%271200%27%20height%3D%27800%27%20preserveAspectRatio%3D%27none%27%3E%3Cfilter%20id%3D%27gm%27%3E%3CfeTurbulence%20type%3D%27fractalNoise%27%20baseFrequency%3D%270.85%200.007%27%20numOctaves%3D%272%27%20seed%3D%278%27%20stitchTiles%3D%27stitch%27%2F%3E%3CfeColorMatrix%20type%3D%27matrix%27%20values%3D%270%200%200%200%200.85%200%200%200%200%200.85%200%200%200%200%200.85%200%200%200%200.5%200%27%2F%3E%3CfeComponentTransfer%3E%3CfeFuncA%20type%3D%27linear%27%20slope%3D%270.2%27%2F%3E%3C%2FfeComponentTransfer%3E%3C%2Ffilter%3E%3Crect%20width%3D%27100%25%27%20height%3D%27100%25%27%20filter%3D%27url%28%23gm%29%27%2F%3E%3C%2Fsvg%3E");
@@ -58,21 +59,31 @@ p.lead{font-size:clamp(15px,1.9vw,19px);color:var(--cream3);text-shadow:var(--ts
 .drule-dk{border-top:1px solid var(--charcoal4);position:relative;padding-top:6px}
 .drule-dk:before{content:"";position:absolute;top:3px;left:0;right:0;border-top:1px solid var(--charcoal4);opacity:.5}
 
-/* NAV */
-header.nav{position:sticky;top:0;z-index:60;background:rgba(20,19,17,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--charcoal4)}
-.nav-in{display:flex;align-items:center;gap:16px;height:64px;position:relative;z-index:3}
-.brandmark{display:flex;align-items:center;gap:11px}
-.brandmark img{height:26px;width:auto}
+/* NAV (matches throttledinbond.com) */
+#nav{position:fixed;top:0;left:0;right:0;z-index:900;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,5vw,60px);background:rgba(26,25,23,0);border-bottom:1px solid rgba(200,149,42,0);transition:background .4s,border-color .4s;}
+#nav.scrolled{background:rgba(26,25,23,.97);border-bottom-color:rgba(200,149,42,.15);}
+.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;}
+.nav-brand .nav-icon{height:28px;width:auto;flex-shrink:0;}
+.nav-logo{height:28px;width:auto;flex-shrink:0;object-fit:contain;opacity:.95;transition:opacity .2s;}
+.nav-logo:hover{opacity:1;}
+.nav-right{display:flex;align-items:center;gap:clamp(14px,2.4vw,26px);}
+.nav-links{display:flex;align-items:center;gap:clamp(12px,2vw,24px);}
+.nav-link{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--cream3);transition:color .2s;cursor:pointer;padding:4px 0;border-bottom:1px solid transparent;text-decoration:none;}
+.nav-link:hover,.nav-link.active{color:var(--cream);border-bottom-color:var(--gold);}
+.nav-cta{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;background:var(--gold);color:var(--charcoal);padding:9px 20px;border:none;cursor:pointer;transition:background .15s;white-space:nowrap;text-decoration:none;display:inline-block;}
+.nav-cta:hover{background:var(--gold-lt);}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.nav-hamburger span{width:22px;height:1.5px;background:var(--cream3);transition:all .3s;display:block;}
+#mobile-menu{position:fixed;inset:0;z-index:850;background:var(--charcoal);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;opacity:0;pointer-events:none;transition:opacity .3s;}
+#mobile-menu.open{opacity:1;pointer-events:auto;}
+.mobile-link{font-size:clamp(24px,6vw,36px);font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--cream3);cursor:pointer;transition:color .2s;text-decoration:none;}
+.mobile-link:hover{color:var(--gold);}
 .wordmark{font-weight:700;letter-spacing:.2em;font-size:15px;color:var(--cream);text-transform:uppercase;white-space:nowrap}
-.nav-links{margin-left:auto;display:flex;gap:26px;align-items:center}
-.nav-links a{font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--cream3);font-weight:500;transition:color .15s}
-.nav-links a:hover{color:var(--gold-lt)}
-.nav-links a.nav-cta{border:1px solid var(--gold);color:var(--gold);padding:9px 16px}
-.nav-links a.nav-cta:hover{background:var(--gold);color:var(--charcoal)}
+@media(max-width:820px){ .nav-right .nav-links, .nav-right .nav-cta{display:none;} .nav-hamburger{display:flex;} }
 
 /* HERO */
 section{padding:clamp(56px,9vw,104px) 0;position:relative}
-.hero{text-align:center;padding-top:clamp(48px,8vh,96px)}
+.hero{text-align:center;padding-top:clamp(92px,14vh,128px)}
 .hero .kmark{height:46px;width:auto;margin:0 auto 22px;filter:drop-shadow(0 6px 22px rgba(0,0,0,.6))}
 .hero-shopline{display:flex;align-items:center;justify-content:center;gap:clamp(10px,1.6vw,22px);white-space:nowrap;line-height:1}
 .hero-shop{font-size:clamp(30px,6.4vw,66px);font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--cream);text-shadow:var(--tsh-lg)}
@@ -121,19 +132,24 @@ footer{color:var(--cream3);padding:52px 0 40px;border-top:1px solid var(--gold-d
   <div class="mk gmk-icon-2" data-depth="40"><img src="https://raw.githubusercontent.com/throttledinbond/TIB-site/main/THROTTLEDINBOND-Logomark-White.png" alt="" crossorigin="anonymous"></div>
 </div>
 
-<!-- NAV -->
-<header class="nav">
-  <div class="wrap nav-in">
-    <a class="brandmark" href="#top" aria-label="Throttled In Bond shop">
-      <img src="https://raw.githubusercontent.com/throttledinbond/TIB-site/main/THROTTLEDINBOND-Logomark-White.png" alt="" crossorigin="anonymous">
-      <span class="wordmark">Throttled In Bond</span>
-    </a>
-    <nav class="nav-links">
-      <a href="#shop">Shop</a>
-      <a class="nav-cta" href="https://www.throttledinbond.com">The Whiskey</a>
-    </nav>
+<!-- NAV (matches throttledinbond.com) -->
+<nav id="nav">
+  <a class="nav-brand" href="#top" aria-label="Throttled In Bond shop">
+    <img class="nav-icon" src="https://raw.githubusercontent.com/throttledinbond/TIB-site/main/THROTTLEDINBOND-Logomark-White.png" alt="" crossorigin="anonymous">
+    <img class="nav-logo" src="https://raw.githubusercontent.com/throttledinbond/TIB-site/main/THROTTLEDINBOND-Wordmark-White.png" alt="Throttled In Bond&trade;" crossorigin="anonymous">
+  </a>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a class="nav-link" href="#top">Shop</a>
+    </div>
+    <a class="nav-cta" href="https://www.throttledinbond.com">The Whiskey</a>
+    <div class="nav-hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
   </div>
-</header>
+</nav>
+<div id="mobile-menu">
+  <a class="mobile-link" href="#top" onclick="toggleMenu()">Shop</a>
+  <a class="mobile-link" href="https://www.throttledinbond.com">The Whiskey</a>
+</div>
 
 <!-- HERO -->
 <section class="hero" id="top">
@@ -185,6 +201,8 @@ footer{color:var(--cream3);padding:52px 0 40px;border-top:1px solid var(--gold-d
 
 <script>
 document.getElementById('yr').textContent = new Date().getFullYear();
+function toggleMenu(){ document.getElementById('mobile-menu').classList.toggle('open'); }
+(function(){ var nav=document.getElementById('nav'); function onScroll(){ if(window.scrollY>20) nav.classList.add('scrolled'); else nav.classList.remove('scrolled'); } window.addEventListener('scroll',onScroll,{passive:true}); onScroll(); })();
 
 /* ===== living parallax: TB watermark layer drifts with pointer / tilt ===== */
 (function(){
