@@ -68,6 +68,11 @@ button{font-family:var(--f);cursor:pointer}
 .card-img{aspect-ratio:1/1;background:#ECE5D7;overflow:hidden;cursor:pointer;position:relative}
 .card-img img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
 .card-img:hover img{transform:scale(1.04)}
+.cimg-nav{position:absolute;top:50%;transform:translateY(-50%);width:28px;height:28px;border:none;background:rgba(20,19,17,.55);color:#fff;font-size:18px;line-height:1;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .15s,background .15s;z-index:2}
+.card-img:hover .cimg-nav{opacity:1}
+.cimg-nav.prev{left:6px}.cimg-nav.next{right:6px}
+.cimg-nav:hover{background:var(--gold);color:var(--charcoal)}
+@media(hover:none){.cimg-nav{opacity:.92}}
 .card-body{padding:13px 14px 15px;display:flex;flex-direction:column;gap:8px;flex:1}
 .card-title{font-size:13px;font-weight:600;color:var(--cream);line-height:1.3;cursor:pointer;min-height:2.5em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .card-title:hover{color:var(--gold-lt)}
@@ -95,7 +100,10 @@ button{font-family:var(--f);cursor:pointer}
 .modal-x{position:absolute;top:8px;right:10px;z-index:3;background:none;border:none;color:var(--cream3);font-size:28px;line-height:1}
 .modal-x:hover{color:var(--gold)}
 .m-gallery{background:#ECE5D7}
-.m-gallery .m-main{aspect-ratio:1/1;overflow:hidden}
+.m-gallery .m-main{position:relative;aspect-ratio:1/1;overflow:hidden}
+.m-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:34px;height:34px;border:none;background:rgba(20,19,17,.6);color:#fff;font-size:22px;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.m-nav:hover{background:var(--gold);color:var(--charcoal)}
+.m-nav.prev{left:8px}.m-nav.next{right:8px}
 .m-gallery .m-main img{width:100%;height:100%;object-fit:cover}
 .m-thumbs{display:flex;gap:6px;padding:8px;flex-wrap:wrap}
 .m-thumbs img{width:46px;height:46px;object-fit:cover;cursor:pointer;border:1px solid transparent;background:#fff}
@@ -273,7 +281,7 @@ function cardHTML(p){
     }).join('')+'</select>';
   }).join('')+'</div>':'';
   return '<div class="card" data-id="'+p.id+'">'+
-    '<div class="card-img" data-open="'+p.id+'"><img src="'+p.img+'" alt="'+esc(p.title)+'" loading="lazy"></div>'+
+    '<div class="card-img" data-open="'+p.id+'"><img src="'+p.img+'" alt="'+esc(p.title)+'" loading="lazy" data-cimg>'+(p.images.length>1?'<button class="cimg-nav prev" data-cprev aria-label="Previous image">&#8249;</button><button class="cimg-nav next" data-cnext aria-label="Next image">&#8250;</button>':'')+'</div>'+
     '<div class="card-body">'+
       '<div class="card-title" data-open="'+p.id+'">'+esc(p.title)+'</div>'+
       '<div class="card-price" data-price="'+p.id+'">'+money(def.price.amount,def.price.currencyCode)+'</div>'+
@@ -303,6 +311,12 @@ function bindCards(){
     var qty=card.querySelector('[data-qty]');
     card.querySelector('[data-step="-1"]').onclick=function(){ qty.value=Math.max(1,(parseInt(qty.value)||1)-1); };
     card.querySelector('[data-step="1"]').onclick=function(){ qty.value=(parseInt(qty.value)||1)+1; };
+    var cp=productById(card.getAttribute('data-id'));
+    if(cp && cp.images.length>1){
+      var cimg=card.querySelector('[data-cimg]'), ci=0;
+      card.querySelector('[data-cprev]').onclick=function(e){ e.stopPropagation(); ci=(ci-1+cp.images.length)%cp.images.length; cimg.src=cp.images[ci]; };
+      card.querySelector('[data-cnext]').onclick=function(e){ e.stopPropagation(); ci=(ci+1)%cp.images.length; cimg.src=cp.images[ci]; };
+    }
     [].forEach.call(card.querySelectorAll('[data-optname]'),function(s){ s.onchange=function(){ updateCardVariant(card); }; });
     var add=card.querySelector('[data-add]');
     if(add) add.onclick=function(){ if(add.disabled) return; var v=cardVariant(card.getAttribute('data-id'),card); if(v&&v.avail){ addToCart(v.id,parseInt(qty.value)||1); } };
@@ -334,7 +348,7 @@ function renderModal(){
   }).join('');
   document.getElementById('modal-card').innerHTML=
     '<button class="modal-x" onclick="closeModal()" aria-label="Close">&times;</button>'+
-    '<div class="m-gallery"><div class="m-main"><img id="m-main-img" src="'+(v.img||imgs[0])+'" alt="'+esc(p.title)+'"></div>'+
+    '<div class="m-gallery"><div class="m-main">'+(imgs.length>1?'<button class="m-nav prev" id="m-prev" aria-label="Previous">&#8249;</button><button class="m-nav next" id="m-next" aria-label="Next">&#8250;</button>':'')+'<img id="m-main-img" src="'+(v.img||imgs[0])+'" alt="'+esc(p.title)+'"></div>'+
       (imgs.length>1?'<div class="m-thumbs">'+imgs.map(function(u,i){return '<img src="'+u+'" data-thumb="'+i+'" class="'+(i===0?'active':'')+'">';}).join('')+'</div>':'')+'</div>'+
     '<div class="m-info">'+
       '<div class="m-title">'+esc(p.title)+'</div>'+
@@ -349,7 +363,12 @@ function renderModal(){
   document.getElementById('m-dec').onclick=function(){ mq.value=Math.max(1,(parseInt(mq.value)||1)-1); };
   document.getElementById('m-inc').onclick=function(){ mq.value=(parseInt(mq.value)||1)+1; };
   var add=document.getElementById('m-add'); if(add&&!add.disabled) add.onclick=function(){ addToCart(activeVariant.id,parseInt(mq.value)||1); closeModal(); };
-  [].forEach.call(document.querySelectorAll('.m-thumbs [data-thumb]'),function(t){ t.onclick=function(){ document.getElementById('m-main-img').src=imgs[t.getAttribute('data-thumb')]; [].forEach.call(document.querySelectorAll('.m-thumbs img'),function(x){x.classList.remove('active');}); t.classList.add('active'); }; });
+  var galIdx=Math.max(0,imgs.indexOf(v.img)); var mainImg=document.getElementById('m-main-img');
+  function setImg(i){ galIdx=(i+imgs.length)%imgs.length; mainImg.src=imgs[galIdx]; [].forEach.call(document.querySelectorAll('.m-thumbs img'),function(x){x.classList.remove('active');}); var th=document.querySelector('.m-thumbs [data-thumb="'+galIdx+'"]'); if(th)th.classList.add('active'); }
+  var mp=document.getElementById('m-prev'), mn=document.getElementById('m-next');
+  if(mp) mp.onclick=function(){ setImg(galIdx-1); };
+  if(mn) mn.onclick=function(){ setImg(galIdx+1); };
+  [].forEach.call(document.querySelectorAll('.m-thumbs [data-thumb]'),function(t){ t.onclick=function(){ setImg(parseInt(t.getAttribute('data-thumb'))); }; });
   [].forEach.call(document.querySelectorAll('.opt-val'),function(b){ if(b.classList.contains('disabled'))return; b.onclick=function(){
     sel[b.getAttribute('data-opt')]=b.getAttribute('data-val');
     var m=variantMatches(sel); if(m){ activeVariant=m; renderModal(); }
