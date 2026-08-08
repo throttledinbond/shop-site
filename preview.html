@@ -300,10 +300,13 @@ function cardVariant(pid,card){
   return p.variants.find(function(v){ return v.opts.every(function(o){ return sel[o.name]===o.value; }); })||null;
 }
 function updateCardVariant(card){
-  var v=cardVariant(card.getAttribute('data-id'),card);
+  var pid=card.getAttribute('data-id'), v=cardVariant(pid,card);
   var priceEl=card.querySelector('[data-price]'), add=card.querySelector('[data-add]');
-  if(v){ priceEl.textContent=money(v.price.amount,v.price.currencyCode); add.disabled=!v.avail; add.textContent=v.avail?'Add to Cart':'Sold Out'; }
-  else { add.disabled=true; add.textContent='Unavailable'; }
+  if(v){
+    priceEl.textContent=money(v.price.amount,v.price.currencyCode);
+    add.disabled=!v.avail; add.textContent=v.avail?'Add to Cart':'Sold Out';
+    if(v.img){ var cimg=card.querySelector('[data-cimg]'); if(cimg){ cimg.src=v.img; var p=productById(pid); var idx=p?p.images.indexOf(v.img):-1; if(idx>=0) cimg.dataset.i=idx; } }
+  } else { add.disabled=true; add.textContent='Unavailable'; }
 }
 function bindCards(){
   [].forEach.call(document.querySelectorAll('[data-open]'),function(el){ el.onclick=function(){ openProduct(el.getAttribute('data-open')); }; });
@@ -313,9 +316,9 @@ function bindCards(){
     card.querySelector('[data-step="1"]').onclick=function(){ qty.value=(parseInt(qty.value)||1)+1; };
     var cp=productById(card.getAttribute('data-id'));
     if(cp && cp.images.length>1){
-      var cimg=card.querySelector('[data-cimg]'), ci=0;
-      card.querySelector('[data-cprev]').onclick=function(e){ e.stopPropagation(); ci=(ci-1+cp.images.length)%cp.images.length; cimg.src=cp.images[ci]; };
-      card.querySelector('[data-cnext]').onclick=function(e){ e.stopPropagation(); ci=(ci+1)%cp.images.length; cimg.src=cp.images[ci]; };
+      var cimg=card.querySelector('[data-cimg]');
+      card.querySelector('[data-cprev]').onclick=function(e){ e.stopPropagation(); var i=(parseInt(cimg.dataset.i||'0')-1+cp.images.length)%cp.images.length; cimg.dataset.i=i; cimg.src=cp.images[i]; };
+      card.querySelector('[data-cnext]').onclick=function(e){ e.stopPropagation(); var i=(parseInt(cimg.dataset.i||'0')+1)%cp.images.length; cimg.dataset.i=i; cimg.src=cp.images[i]; };
     }
     [].forEach.call(card.querySelectorAll('[data-optname]'),function(s){ s.onchange=function(){ updateCardVariant(card); }; });
     var add=card.querySelector('[data-add]');
