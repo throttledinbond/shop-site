@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Throttled In Bond&trade; &ndash; Shop (Preview)</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="https://www.throttledinbond.com/favicon.png?v=20260710">
+<link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
+<style>
+@font-face { font-family:'BasierSquare'; src:url('https://raw.githubusercontent.com/throttledinbond/TIB-site/main/BasierSquare-Regular.otf') format('opentype'); font-weight:400; font-display:swap; }
+@font-face { font-family:'BasierSquare'; src:url('https://raw.githubusercontent.com/throttledinbond/TIB-site/main/BasierSquare-Medium.otf') format('opentype'); font-weight:500; font-display:swap; }
+@font-face { font-family:'BasierSquare'; src:url('https://raw.githubusercontent.com/throttledinbond/TIB-site/main/BasierSquare-SemiBold.otf') format('opentype'); font-weight:600; font-display:swap; }
+@font-face { font-family:'BasierSquare'; src:url('https://raw.githubusercontent.com/throttledinbond/TIB-site/main/BasierSquare-Bold.otf') format('opentype'); font-weight:700; font-display:swap; }
+:root{
+  --cream:#F2EDE3; --cream3:#D6CCBA; --charcoal:#1A1917; --charcoal2:#242220; --charcoal4:#3E3B35;
+  --gold:#C8952A; --gold-lt:#E8B84B; --gold-dk:#9A6E18; --muted:#6A6258;
+  --f:'BasierSquare',system-ui,-apple-system,sans-serif; --nav-h:64px;
+  --tsh:0 0 3px rgba(0,0,0,.9),0 1px 3px rgba(0,0,0,.95),0 3px 12px rgba(0,0,0,.8);
+  --tsh-lg:0 0 6px rgba(0,0,0,.85),0 2px 5px rgba(0,0,0,.95),0 6px 26px rgba(0,0,0,.8);
+  --metal:linear-gradient(180deg,rgba(255,255,255,.06) 0%,rgba(255,255,255,0) 42%,rgba(0,0,0,.34) 100%),url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%271200%27%20height%3D%27800%27%20preserveAspectRatio%3D%27none%27%3E%3Cfilter%20id%3D%27gm%27%3E%3CfeTurbulence%20type%3D%27fractalNoise%27%20baseFrequency%3D%270.85%200.007%27%20numOctaves%3D%272%27%20seed%3D%278%27%20stitchTiles%3D%27stitch%27%2F%3E%3CfeColorMatrix%20type%3D%27matrix%27%20values%3D%270%200%200%200%200.85%200%200%200%200%200.85%200%200%200%200%200.85%200%200%200%200.5%200%27%2F%3E%3CfeComponentTransfer%3E%3CfeFuncA%20type%3D%27linear%27%20slope%3D%270.2%27%2F%3E%3C%2FfeComponentTransfer%3E%3C%2Ffilter%3E%3Crect%20width%3D%27100%25%27%20height%3D%27100%25%27%20filter%3D%27url%28%23gm%29%27%2F%3E%3C%2Fsvg%3E");
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--charcoal);color:var(--cream);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+button{font-family:var(--f);cursor:pointer}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px;position:relative;z-index:3}
+
+/* background */
+.page-bg{position:fixed;inset:0;z-index:-3;background-color:var(--charcoal);background-image:var(--metal);background-repeat:no-repeat,repeat;background-size:100% 100%,1200px 800px;background-position:center,top left}
+.page-bg:after{content:"";position:absolute;inset:0;background:radial-gradient(140% 90% at 50% -8%,rgba(200,149,42,.10),transparent 60%)}
+.page-marks{position:fixed;inset:-12%;z-index:-2;pointer-events:none;overflow:hidden;animation:drift 34s ease-in-out infinite alternate}
+.page-marks img{position:absolute;display:block}
+@keyframes drift{0%{transform:translate3d(0,0,0) scale(1)}100%{transform:translate3d(0,-20px,0) scale(1.04)}}
+.gmk-word{top:30%;left:50%;margin-left:-88vw;width:176vw;opacity:.06}
+.gmk-icon{top:1%;left:-8%;width:min(78vw,860px);opacity:.05}
+
+/* nav */
+#nav{position:fixed;top:0;left:0;right:0;z-index:900;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,5vw,60px);background:rgba(26,25,23,.6);border-bottom:1px solid rgba(200,149,42,.12);backdrop-filter:blur(8px)}
+.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-brand img.ic{height:28px} .nav-brand img.wm{height:28px;opacity:.95}
+.nav-right{display:flex;align-items:center;gap:clamp(14px,2.4vw,26px)}
+.nav-link{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--cream3);text-decoration:none;padding:4px 0;border-bottom:1px solid transparent}
+.nav-link:hover{color:var(--cream);border-bottom-color:var(--gold)}
+.cart-btn{position:relative;background:none;border:none;color:var(--cream);display:flex;align-items:center;gap:7px;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
+.cart-btn svg{width:21px;height:21px}
+.cart-count{position:absolute;top:-8px;right:-10px;min-width:17px;height:17px;padding:0 4px;background:var(--gold);color:var(--charcoal);border-radius:9px;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center}
+
+/* hero */
+.hero{text-align:center;padding:clamp(96px,15vh,140px) 0 clamp(28px,5vw,44px)}
+.hero-line{display:flex;align-items:center;justify-content:center;gap:clamp(10px,1.6vw,20px);white-space:nowrap}
+.hero-line .sh{font-size:clamp(30px,6vw,60px);font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--cream);text-shadow:var(--tsh-lg)}
+.hero-line img{height:clamp(20px,3.6vw,38px)}
+.hero-sub{margin-top:16px;font-size:clamp(11px,1.7vw,15px);color:var(--cream3);text-shadow:var(--tsh)}
+.hero-sub b{color:var(--gold);font-weight:600}
+
+/* filters */
+.filters{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:8px 0 30px}
+.filter{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--cream3);background:rgba(20,19,17,.5);border:1px solid var(--charcoal4);padding:9px 17px;transition:all .15s}
+.filter:hover{color:var(--gold);border-color:var(--gold)}
+.filter.active{background:var(--gold);color:var(--charcoal);border-color:var(--gold)}
+
+/* grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:22px;padding-bottom:80px}
+.card{background:rgba(20,19,17,.55);border:1px solid var(--charcoal4);display:flex;flex-direction:column;transition:border-color .16s,transform .16s}
+.card:hover{border-color:var(--gold);transform:translateY(-3px)}
+.card-img{aspect-ratio:1/1;background:#ECE5D7;overflow:hidden;cursor:pointer;position:relative}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.card-img:hover img{transform:scale(1.04)}
+.card-body{padding:13px 14px 15px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card-title{font-size:13px;font-weight:600;color:var(--cream);line-height:1.3;cursor:pointer;min-height:2.5em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-title:hover{color:var(--gold-lt)}
+.card-price{font-size:13px;color:var(--gold);letter-spacing:.03em}
+.card-actions{margin-top:auto;display:flex;gap:8px;align-items:stretch}
+.stepper{display:flex;align-items:center;border:1px solid var(--charcoal4);flex-shrink:0}
+.stepper button{width:30px;height:36px;background:none;border:none;color:var(--cream);font-size:16px;line-height:1}
+.stepper button:hover{color:var(--gold)}
+.stepper input{width:34px;height:36px;background:none;border:none;border-left:1px solid var(--charcoal4);border-right:1px solid var(--charcoal4);color:var(--cream);text-align:center;font-family:var(--f);font-size:13px;-moz-appearance:textfield}
+.stepper input::-webkit-outer-spin-button,.stepper input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.btn-add{flex:1;background:var(--gold);color:var(--charcoal);border:none;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:0 10px;transition:background .15s}
+.btn-add:hover{background:var(--gold-lt)}
+.btn-add:disabled{background:var(--charcoal4);color:var(--muted);cursor:not-allowed}
+
+/* modal */
+.modal{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;padding:20px}
+.modal.open{display:flex}
+.modal-bg{position:absolute;inset:0;background:rgba(8,8,7,.8);backdrop-filter:blur(3px)}
+.modal-card{position:relative;z-index:2;width:100%;max-width:860px;max-height:90vh;overflow:auto;background:var(--charcoal2);border:1px solid var(--gold);display:grid;grid-template-columns:1fr 1fr}
+@media(max-width:680px){.modal-card{grid-template-columns:1fr}}
+.modal-x{position:absolute;top:8px;right:10px;z-index:3;background:none;border:none;color:var(--cream3);font-size:28px;line-height:1}
+.modal-x:hover{color:var(--gold)}
+.m-gallery{background:#ECE5D7}
+.m-gallery .m-main{aspect-ratio:1/1;overflow:hidden}
+.m-gallery .m-main img{width:100%;height:100%;object-fit:cover}
+.m-thumbs{display:flex;gap:6px;padding:8px;flex-wrap:wrap}
+.m-thumbs img{width:46px;height:46px;object-fit:cover;cursor:pointer;border:1px solid transparent;background:#fff}
+.m-thumbs img.active{border-color:var(--gold)}
+.m-info{padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:14px}
+.m-title{font-size:clamp(18px,2.4vw,24px);font-weight:700;color:var(--cream);line-height:1.2}
+.m-price{font-size:17px;color:var(--gold);font-weight:600}
+.m-desc{font-size:13px;color:var(--cream3);line-height:1.6;max-height:150px;overflow:auto}
+.m-opt{margin-top:2px}
+.m-opt-name{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--cream3);margin-bottom:7px}
+.m-opt-vals{display:flex;flex-wrap:wrap;gap:7px}
+.opt-val{font-size:12px;color:var(--cream);background:rgba(0,0,0,.25);border:1px solid var(--charcoal4);padding:7px 13px}
+.opt-val:hover{border-color:var(--gold)}
+.opt-val.active{background:var(--gold);color:var(--charcoal);border-color:var(--gold)}
+.opt-val.disabled{opacity:.35;text-decoration:line-through;cursor:not-allowed}
+.m-buy{display:flex;gap:12px;align-items:stretch;margin-top:6px}
+.m-buy .stepper button{height:46px}.m-buy .stepper input{height:46px}
+.m-buy .btn-add{padding:0 22px;font-size:12px}
+.m-note{font-size:11px;color:var(--muted);letter-spacing:.03em}
+
+/* cart drawer */
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(400px,100vw);background:var(--charcoal2);border-left:1px solid var(--gold);z-index:1100;transform:translateX(100%);transition:transform .3s cubic-bezier(.16,.7,.3,1);display:flex;flex-direction:column}
+.drawer.open{transform:translateX(0)}
+.drawer-ov{position:fixed;inset:0;background:rgba(8,8,7,.6);z-index:1090;opacity:0;pointer-events:none;transition:opacity .3s}
+.drawer-ov.open{opacity:1;pointer-events:auto}
+.drawer-head{display:flex;align-items:center;justify-content:space-between;padding:20px 22px;border-bottom:1px solid var(--charcoal4)}
+.drawer-head h3{font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:var(--cream);font-weight:700}
+.drawer-head button{background:none;border:none;color:var(--cream3);font-size:26px;line-height:1}
+.drawer-head button:hover{color:var(--gold)}
+.drawer-body{flex:1;overflow:auto;padding:8px 22px}
+.drawer-empty{text-align:center;color:var(--cream3);font-size:13px;padding:50px 0}
+.line{display:flex;gap:12px;padding:16px 0;border-bottom:1px solid var(--charcoal4)}
+.line-img{width:64px;height:64px;object-fit:cover;background:#ECE5D7;flex-shrink:0}
+.line-mid{flex:1;min-width:0}
+.line-title{font-size:12.5px;color:var(--cream);font-weight:600;line-height:1.3}
+.line-variant{font-size:11px;color:var(--cream3);margin-top:3px}
+.line-bottom{display:flex;align-items:center;justify-content:space-between;margin-top:9px}
+.line-price{font-size:12.5px;color:var(--gold)}
+.line-rm{background:none;border:none;color:var(--muted);font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin-top:6px}
+.line-rm:hover{color:var(--gold)}
+.drawer-foot{padding:18px 22px 22px;border-top:1px solid var(--charcoal4)}
+.drawer-sub{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px}
+.drawer-sub .l{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--cream3)}
+.drawer-sub .v{font-size:18px;color:var(--cream);font-weight:700}
+.drawer-note{font-size:11px;color:var(--muted);margin-bottom:14px}
+.btn-checkout{display:block;width:100%;text-align:center;background:var(--gold);color:var(--charcoal);border:none;padding:15px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;transition:background .15s}
+.btn-checkout:hover{background:var(--gold-lt)}
+
+/* toast + loading */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--charcoal);border:1px solid var(--gold);color:var(--cream);padding:12px 22px;font-size:12px;letter-spacing:.08em;z-index:1200;opacity:0;transition:all .3s;pointer-events:none}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.loading{grid-column:1/-1;text-align:center;color:var(--cream3);padding:60px 0;font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+.preview-tag{position:fixed;bottom:12px;left:12px;z-index:1200;background:var(--rust,#8B3A2A);color:#F4EEE3;font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;opacity:.85}
+</style>
+</head>
+<body>
+<div class="page-bg"></div>
+<div class="page-marks">
+  <img class="gmk-word" src="https://raw.githubusercontent.com/throttledinbond/TIB-site/main/THROTTLEDINBOND-Wordmark-White.png" alt="">
+  <img class="gmk-icon" src="https://raw.githubusercontent.com/throttledinbond/TIB-site/main/THROTTLEDINBOND-Logomark-White.png" alt="">
+</div>
+
+<nav id="nav">
+  <a class="nav-brand" href="#top">
+    <img class="ic" src="https://raw.githubusercontent.com/throttledinbond/TIB-site/main/THROTTLEDINBOND-Logomark-White.png" alt="">
+    <img class="wm" src="https://raw.githubusercontent.com/throttledinbond/TIB-site/main/THROTTLEDINBOND-Wordmark-White.png" alt="Throttled In Bond">
+  </a>
+  <div class="nav-right">
+    <a class="nav-link" href="https://www.throttledinbond.com">The Whiskey</a>
+    <button class="cart-btn" onclick="openCart()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+      Cart<span class="cart-count" id="cart-count" style="display:none">0</span>
+    </button>
+  </div>
+</nav>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-line">
+      <span class="sh">Shop</span>
+      <img src="https://raw.githubusercontent.com/throttledinbond/TIB-site/main/THROTTLEDINBOND-Wordmark-White.png" alt="Throttled In Bond">
+    </div>
+    <p class="hero-sub"><b>Wear The Spirit of American Muscle&trade;</b>&nbsp;&nbsp;Made to order. Ships directly to you.</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="filters" id="filters"></div>
+  <div class="grid" id="grid"><div class="loading">Loading the collection&hellip;</div></div>
+</div>
+
+<!-- product modal -->
+<div class="modal" id="modal">
+  <div class="modal-bg" onclick="closeModal()"></div>
+  <div class="modal-card" id="modal-card"></div>
+</div>
+
+<!-- cart -->
+<div class="drawer-ov" id="drawer-ov" onclick="closeCart()"></div>
+<aside class="drawer" id="drawer" aria-label="Cart">
+  <div class="drawer-head"><h3>Your Cart</h3><button onclick="closeCart()" aria-label="Close">&times;</button></div>
+  <div class="drawer-body" id="drawer-body"></div>
+  <div class="drawer-foot" id="drawer-foot" style="display:none">
+    <div class="drawer-sub"><span class="l">Subtotal</span><span class="v" id="cart-subtotal">$0.00</span></div>
+    <div class="drawer-note">Shipping &amp; taxes calculated at checkout.</div>
+    <a class="btn-checkout" id="checkout-btn" href="#">Checkout</a>
+  </div>
+</aside>
+
+<div class="toast" id="toast"></div>
+<div class="preview-tag">Preview &middot; live Shopify data</div>
+
+<script>
+var SF_DOMAIN='cehtfv-np.myshopify.com';
+var SF_TOKEN='c2f813ef6e6542879f7b93e8d5ae7d4e';
+var SF_URL='https://'+SF_DOMAIN+'/api/2024-07/graphql.json';
+var COLLECTIONS=[
+  {label:'All',id:'313251528790'},
+  {label:'Apparel',id:'313454592086'},
+  {label:'Hats',id:'313454624854'},
+  {label:'Home',id:'313454657622'},
+  {label:'Garage',id:'313454886998'},
+  {label:'Drinkware',id:'313454690390'}
+];
+var cache={}, current=null, cartId=null, cartData=null, activeProduct=null, activeVariant=null;
+
+function money(a,c){ var n=parseFloat(a); return (c==='USD'||!c?'$':'')+n.toFixed(2); }
+function esc(s){ return (s||'').replace(/[&<>"']/g,function(m){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m];}); }
+async function sf(query,variables){
+  var r=await fetch(SF_URL,{method:'POST',headers:{'Content-Type':'application/json','X-Shopify-Storefront-Access-Token':SF_TOKEN},body:JSON.stringify({query:query,variables:variables||{}})});
+  var j=await r.json(); if(j.errors){ console.error(j.errors); } return j.data;
+}
+
+/* ---- products ---- */
+var PRODUCTS_Q='query($id:ID!){collection(id:$id){products(first:60){edges{node{id title handle description featuredImage{url} images(first:10){edges{node{url}}} options{name values} priceRange{minVariantPrice{amount currencyCode}} variants(first:100){edges{node{id title availableForSale price{amount currencyCode} selectedOptions{name value} image{url}}}}}}}}}';
+async function loadCollection(id){
+  if(cache[id]) return cache[id];
+  var d=await sf(PRODUCTS_Q,{id:'gid://shopify/Collection/'+id});
+  var list=(d&&d.collection?d.collection.products.edges:[]).map(function(e){
+    var n=e.node;
+    return {
+      id:n.id, title:n.title, description:n.description||'',
+      img:n.featuredImage?n.featuredImage.url:'',
+      images:n.images.edges.map(function(x){return x.node.url;}),
+      options:n.options,
+      price:n.priceRange.minVariantPrice,
+      variants:n.variants.edges.map(function(v){return {id:v.node.id,title:v.node.title,avail:v.node.availableForSale,price:v.node.price,opts:v.node.selectedOptions,img:v.node.image?v.node.image.url:''};})
+    };
+  });
+  cache[id]=list; return list;
+}
+function productById(pid){ for(var k in cache){ var f=cache[k].filter(function(p){return p.id===pid;}); if(f.length) return f[0]; } return null; }
+
+function renderFilters(){
+  var el=document.getElementById('filters');
+  el.innerHTML=COLLECTIONS.map(function(c){return '<button class="filter'+(c.id===current?' active':'')+'" data-id="'+c.id+'">'+c.label+'</button>';}).join('');
+  [].forEach.call(el.querySelectorAll('.filter'),function(b){ b.onclick=function(){ selectCollection(b.getAttribute('data-id')); }; });
+}
+async function selectCollection(id){
+  current=id; renderFilters();
+  var grid=document.getElementById('grid'); grid.innerHTML='<div class="loading">Loading&hellip;</div>';
+  var list=await loadCollection(id);
+  if(!list.length){ grid.innerHTML='<div class="loading">No products in this category.</div>'; return; }
+  grid.innerHTML=list.map(cardHTML).join('');
+  bindCards();
+}
+function cardHTML(p){
+  var soldout=!p.variants.some(function(v){return v.avail;});
+  return '<div class="card" data-id="'+p.id+'">'+
+    '<div class="card-img" data-open="'+p.id+'"><img src="'+p.img+'" alt="'+esc(p.title)+'" loading="lazy"></div>'+
+    '<div class="card-body">'+
+      '<div class="card-title" data-open="'+p.id+'">'+esc(p.title)+'</div>'+
+      '<div class="card-price">'+money(p.price.amount,p.price.currencyCode)+'</div>'+
+      '<div class="card-actions">'+
+        '<div class="stepper"><button data-step="-1">&minus;</button><input type="number" min="1" value="1" data-qty><button data-step="1">+</button></div>'+
+        '<button class="btn-add" data-add="'+p.id+'"'+(soldout?' disabled':'')+'>'+(soldout?'Sold Out':'Add to Cart')+'</button>'+
+      '</div>'+
+    '</div></div>';
+}
+function bindCards(){
+  [].forEach.call(document.querySelectorAll('[data-open]'),function(el){ el.onclick=function(){ openProduct(el.getAttribute('data-open')); }; });
+  [].forEach.call(document.querySelectorAll('.card'),function(card){
+    var qty=card.querySelector('[data-qty]');
+    card.querySelector('[data-step="-1"]').onclick=function(){ qty.value=Math.max(1,(parseInt(qty.value)||1)-1); };
+    card.querySelector('[data-step="1"]').onclick=function(){ qty.value=(parseInt(qty.value)||1)+1; };
+    var add=card.querySelector('[data-add]');
+    if(add&&!add.disabled) add.onclick=function(){ quickAdd(add.getAttribute('data-add'),parseInt(qty.value)||1); };
+  });
+}
+function quickAdd(pid,qty){
+  var p=productById(pid); if(!p) return;
+  var avail=p.variants.filter(function(v){return v.avail;});
+  if(p.variants.length>1){ openProduct(pid); return; } // choose options in modal
+  addToCart((avail[0]||p.variants[0]).id,qty);
+}
+
+/* ---- product modal ---- */
+function openProduct(pid){
+  var p=productById(pid); if(!p) return;
+  activeProduct=p;
+  var avail=p.variants.filter(function(v){return v.avail;});
+  activeVariant=(avail[0]||p.variants[0]);
+  renderModal();
+  document.getElementById('modal').classList.add('open');
+}
+function variantMatches(sel){ return activeProduct.variants.find(function(v){ return v.opts.every(function(o){ return sel[o.name]===o.value; }); }); }
+function renderModal(){
+  var p=activeProduct, v=activeVariant;
+  var imgs=p.images.length?p.images:[p.img];
+  var sel={}; v.opts.forEach(function(o){ sel[o.name]=o.value; });
+  var optsHTML=p.options.filter(function(o){return !(o.values.length===1&&o.values[0]==='Default Title');}).map(function(o){
+    return '<div class="m-opt"><div class="m-opt-name">'+esc(o.name)+'</div><div class="m-opt-vals">'+
+      o.values.map(function(val){
+        var test=Object.assign({},sel); test[o.name]=val;
+        var match=p.variants.find(function(vr){return vr.opts.every(function(x){return test[x.name]===x.value;});});
+        var dis=match&&!match.avail;
+        return '<button class="opt-val'+(sel[o.name]===val?' active':'')+(dis?' disabled':'')+'" data-opt="'+esc(o.name)+'" data-val="'+esc(val)+'">'+esc(val)+'</button>';
+      }).join('')+'</div></div>';
+  }).join('');
+  document.getElementById('modal-card').innerHTML=
+    '<button class="modal-x" onclick="closeModal()" aria-label="Close">&times;</button>'+
+    '<div class="m-gallery"><div class="m-main"><img id="m-main-img" src="'+(v.img||imgs[0])+'" alt="'+esc(p.title)+'"></div>'+
+      (imgs.length>1?'<div class="m-thumbs">'+imgs.map(function(u,i){return '<img src="'+u+'" data-thumb="'+i+'" class="'+(i===0?'active':'')+'">';}).join('')+'</div>':'')+'</div>'+
+    '<div class="m-info">'+
+      '<div class="m-title">'+esc(p.title)+'</div>'+
+      '<div class="m-price" id="m-price">'+money(v.price.amount,v.price.currencyCode)+'</div>'+
+      (optsHTML?optsHTML:'')+
+      '<div class="m-buy"><div class="stepper"><button id="m-dec">&minus;</button><input type="number" min="1" value="1" id="m-qty"><button id="m-inc">+</button></div>'+
+        '<button class="btn-add" id="m-add"'+(v.avail?'':' disabled')+'>'+(v.avail?'Add to Cart':'Sold Out')+'</button></div>'+
+      (p.description?'<div class="m-desc">'+esc(p.description)+'</div>':'')+
+      '<div class="m-note">Ships directly to you. Secure checkout by Shopify.</div>'+
+    '</div>';
+  var mq=document.getElementById('m-qty');
+  document.getElementById('m-dec').onclick=function(){ mq.value=Math.max(1,(parseInt(mq.value)||1)-1); };
+  document.getElementById('m-inc').onclick=function(){ mq.value=(parseInt(mq.value)||1)+1; };
+  var add=document.getElementById('m-add'); if(add&&!add.disabled) add.onclick=function(){ addToCart(activeVariant.id,parseInt(mq.value)||1); closeModal(); };
+  [].forEach.call(document.querySelectorAll('.m-thumbs [data-thumb]'),function(t){ t.onclick=function(){ document.getElementById('m-main-img').src=imgs[t.getAttribute('data-thumb')]; [].forEach.call(document.querySelectorAll('.m-thumbs img'),function(x){x.classList.remove('active');}); t.classList.add('active'); }; });
+  [].forEach.call(document.querySelectorAll('.opt-val'),function(b){ if(b.classList.contains('disabled'))return; b.onclick=function(){
+    sel[b.getAttribute('data-opt')]=b.getAttribute('data-val');
+    var m=variantMatches(sel); if(m){ activeVariant=m; renderModal(); }
+  };});
+}
+function closeModal(){ document.getElementById('modal').classList.remove('open'); }
+
+/* ---- cart ---- */
+var CART_FIELDS='id checkoutUrl totalQuantity cost{subtotalAmount{amount currencyCode}} lines(first:100){edges{node{id quantity merchandise{... on ProductVariant{id title image{url} price{amount currencyCode} product{title} selectedOptions{name value}}}}}}';
+async function ensureCart(){
+  cartId=localStorage.getItem('tib_pv_cart');
+  if(cartId){
+    var d=await sf('query($id:ID!){cart(id:$id){'+CART_FIELDS+'}}',{id:cartId});
+    if(d&&d.cart){ cartData=d.cart; return; } cartId=null; localStorage.removeItem('tib_pv_cart');
+  }
+}
+async function addToCart(variantId,qty){
+  if(!cartId){
+    var d=await sf('mutation($l:[CartLineInput!]!){cartCreate(input:{lines:$l}){cart{'+CART_FIELDS+'} userErrors{message}}}',{l:[{merchandiseId:variantId,quantity:qty}]});
+    cartData=d.cartCreate.cart; cartId=cartData.id; localStorage.setItem('tib_pv_cart',cartId);
+  } else {
+    var d2=await sf('mutation($id:ID!,$l:[CartLineInput!]!){cartLinesAdd(cartId:$id,lines:$l){cart{'+CART_FIELDS+'} userErrors{message}}}',{id:cartId,l:[{merchandiseId:variantId,quantity:qty}]});
+    cartData=d2.cartLinesAdd.cart;
+  }
+  updateCartUI(); toast('Added to cart'); openCart();
+}
+async function updateLine(lineId,qty){
+  if(qty<1) return removeLine(lineId);
+  var d=await sf('mutation($id:ID!,$l:[CartLineUpdateInput!]!){cartLinesUpdate(cartId:$id,lines:$l){cart{'+CART_FIELDS+'} userErrors{message}}}',{id:cartId,l:[{id:lineId,quantity:qty}]});
+  cartData=d.cartLinesUpdate.cart; updateCartUI();
+}
+async function removeLine(lineId){
+  var d=await sf('mutation($id:ID!,$l:[ID!]!){cartLinesRemove(cartId:$id,lineIds:$l){cart{'+CART_FIELDS+'} userErrors{message}}}',{id:cartId,l:[lineId]});
+  cartData=d.cartLinesRemove.cart; updateCartUI();
+}
+function updateCartUI(){
+  var count=cartData?cartData.totalQuantity:0;
+  var cc=document.getElementById('cart-count'); cc.textContent=count; cc.style.display=count>0?'flex':'none';
+  var body=document.getElementById('drawer-body'), foot=document.getElementById('drawer-foot');
+  var lines=cartData?cartData.lines.edges.map(function(e){return e.node;}):[];
+  if(!lines.length){ body.innerHTML='<div class="drawer-empty">Your cart is empty.</div>'; foot.style.display='none'; return; }
+  body.innerHTML=lines.map(function(l){
+    var m=l.merchandise, variant=m.selectedOptions.filter(function(o){return o.value!=='Default Title';}).map(function(o){return o.value;}).join(' / ');
+    return '<div class="line">'+
+      '<img class="line-img" src="'+(m.image?m.image.url:'')+'" alt="">'+
+      '<div class="line-mid"><div class="line-title">'+esc(m.product.title)+'</div>'+
+        (variant?'<div class="line-variant">'+esc(variant)+'</div>':'')+
+        '<div class="line-bottom"><div class="stepper"><button data-dec="'+l.id+'">&minus;</button><input type="number" min="1" value="'+l.quantity+'" data-line="'+l.id+'"><button data-inc="'+l.id+'">+</button></div>'+
+        '<div class="line-price">'+money(m.price.amount,m.price.currencyCode)+'</div></div>'+
+        '<button class="line-rm" data-rm="'+l.id+'">Remove</button>'+
+      '</div></div>';
+  }).join('');
+  foot.style.display='block';
+  document.getElementById('cart-subtotal').textContent=money(cartData.cost.subtotalAmount.amount,cartData.cost.subtotalAmount.currencyCode);
+  document.getElementById('checkout-btn').href=cartData.checkoutUrl;
+  [].forEach.call(body.querySelectorAll('[data-dec]'),function(b){ b.onclick=function(){ updateLine(b.getAttribute('data-dec'), (curQty(b.getAttribute('data-dec'))-1)); }; });
+  [].forEach.call(body.querySelectorAll('[data-inc]'),function(b){ b.onclick=function(){ updateLine(b.getAttribute('data-inc'), (curQty(b.getAttribute('data-inc'))+1)); }; });
+  [].forEach.call(body.querySelectorAll('[data-rm]'),function(b){ b.onclick=function(){ removeLine(b.getAttribute('data-rm')); }; });
+  [].forEach.call(body.querySelectorAll('[data-line]'),function(inp){ inp.onchange=function(){ updateLine(inp.getAttribute('data-line'), Math.max(1,parseInt(inp.value)||1)); }; });
+}
+function curQty(id){ var i=document.querySelector('[data-line="'+id+'"]'); return Math.max(1,parseInt(i.value)||1); }
+function openCart(){ document.getElementById('drawer').classList.add('open'); document.getElementById('drawer-ov').classList.add('open'); }
+function closeCart(){ document.getElementById('drawer').classList.remove('open'); document.getElementById('drawer-ov').classList.remove('open'); }
+
+var toastT;
+function toast(msg){ var t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(toastT); toastT=setTimeout(function(){t.classList.remove('show');},2000); }
+document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ closeModal(); closeCart(); } });
+
+/* nav scrolled */
+(function(){var n=document.getElementById('nav');function s(){ n.style.background=window.scrollY>20?'rgba(26,25,23,.97)':'rgba(26,25,23,.6)'; }window.addEventListener('scroll',s,{passive:true});})();
+
+/* init */
+(async function(){ await ensureCart(); updateCartUI(); current=COLLECTIONS[0].id; renderFilters(); selectCollection(current); })();
+</script>
+</body>
+</html>
